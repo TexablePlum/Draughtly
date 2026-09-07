@@ -1,0 +1,6 @@
+rootProject.name = 'draughtly'
+
+// Each service under services/ is its own self-contained Gradle build
+// (own settings.gradle, wrapper and Dockerfile). They are wired in here as
+// composite builds so opening the repo root in an IDE brings them all in.
+includeBuild 'services/user-service'

@@ -1,0 +1,27 @@
+# Local profile: talks to the infrastructure started by the repo-root docker-compose.yml.
+# All credentials here are non-production development values.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_service
+    username: user_service
+    password: user_service
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: draughtly
+    password: draughtly
+
+security:
+  jwt:
+    secret: local-dev-signing-secret-not-for-production
+
+logging:
+  level:
+    com.draughtly.userservice: DEBUG

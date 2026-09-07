@@ -1,0 +1,21 @@
+// Aggregate lifecycle tasks that fan out to every included service build,
+// so `./gradlew build` / `clean` / `test` at the repo root work as expected.
+def services = ['user-service']
+
+tasks.register('build') {
+    group = 'build'
+    description = 'Assembles and tests every service.'
+    dependsOn services.collect { gradle.includedBuild(it).task(':build') }
+}
+
+tasks.register('clean') {
+    group = 'build'
+    description = 'Cleans every service.'
+    dependsOn services.collect { gradle.includedBuild(it).task(':clean') }
+}
+
+tasks.register('test') {
+    group = 'verification'
+    description = 'Runs the tests of every service.'
+    dependsOn services.collect { gradle.includedBuild(it).task(':test') }
+}

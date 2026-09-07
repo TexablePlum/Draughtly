@@ -1,0 +1,42 @@
+# --- Build output ---
+# Anchored so they only match at the repo / module root and never a Java
+# package such as adapter/out or application/port/out.
+build/
+/out/
+/bin/
+**/target/
+*.class
+
+# --- Gradle ---
+.gradle/
+gradle-app.setting
+!gradle/wrapper/gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# --- Eclipse / VS Code ---
+.classpath
+.project
+.settings/
+.vscode/
+.apt_generated/
+
+# --- Logs & temp ---
+*.log
+*.tmp
+*.pid
+hs_err_pid*
+replay_pid*
+
+# --- OS noise ---
+.DS_Store
+Thumbs.db
+
+# --- Local env overrides ---
+.env
+.env.local
